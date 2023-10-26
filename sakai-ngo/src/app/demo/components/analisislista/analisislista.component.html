@@ -1,0 +1,131 @@
+
+
+<p-tabMenu [model]="itemss"></p-tabMenu>
+
+
+
+
+<div class="ui-g">
+    <p-panel header="lista de Analisis">
+    <p-table
+        #dt1
+        [value]="Analisis"
+        [columns]="cols"
+        dataKey="id"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        currentPageReportTemplate="Mostrando {first} al {last} de {totalRecords} Analisis"
+        [globalFilterFields]="['codAnalisis','nombre', 'rectal','oral','actitud','condiCorporal','estadohidratacion','vulvarpropulcal','estadomucoso','estadoconjutival','observaciones']"
+    >
+    
+        <ng-template pTemplate="caption">
+            <div class="flex justify-content-between flex-column sm:flex-row">
+                
+                    <span class="p-input-icon-left mb-6">
+                   
+                        <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="             busqueda Rapida" />
+                        <i class="pi pi-search"></i>
+                </span>
+            </div>
+        </ng-template>
+    
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" style="min-width:8rem">
+                       {{col.header}}
+                </th>
+                
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Acciones
+                        <p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                
+               
+        </ng-template>
+        <ng-template pTemplate="body" let-Analisis let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                  {{Analisis[col.field]}}
+                </td>
+        
+                
+                <td class="button-center">
+                    <div class="d-flex justify-content-center" >
+       
+                        <p-button  (click)="abrirModal(Analisis)" [disabled]="true" icon="pi pi-bookmark" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
+                        <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>                </div>
+                  </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">Analisis no encontrado.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+    </p-panel>
+    
+    
+<p-dialog header="Editar Medicamento" [(visible)]="visibleEdicion" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Modificar Medicamento </span>
+    </ng-template>
+    <form [formGroup]="analisisForm">
+    
+                     <div class="card">
+                  <div class="flex flex-wrap gap-3 mb-4">
+                    <div class="flex-auto">
+                        <label for="codAnalisis"class="font-bold block mb-2">N° Analisis</label>
+                        <input pInputText id="codAnalisis" pKeyFilter="number" class="w-full" formControlName="codAnalisis" readonly />
+                    </div>
+                      <div class="flex-auto">
+                          <label for="actitud" class="font-bold block mb-2">Actitud</label>
+                          <input pInputText id="nombre" pKeyFilter="text" class="w-full" formControlName="actitud"  />
+                      </div>
+                      <div class="flex-auto">
+                          <label for="condicorporal" class="font-bold block mb-2">Condicion Corporal </label>
+                          <input pInputText id="condiCorporal" pKeyFilter="text" class="w-full" formControlName="condicorporal" />
+                      </div>
+                      <div class="flex-auto">
+                        <label for="estadoconjutival" class="font-bold block mb-2">Estado Conjutival</label>
+                        <input pInputText id="estadoconjutival" pKeyFilter="text" class="w-full" formControlName="estadoconjutival" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="estadohidratacion" class="font-bold block mb-2">Estado de Hidratacion</label>
+                        <input pInputText id="estadohidratacion" pKeyFilter="text" class="w-full" formControlName="estadohidratacion" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="estadomucoso" class="font-bold block mb-2">Estado Mucoso</label>
+                        <input pInputText id="estadomucoso" pKeyFilter="text" class="w-full" formControlName="estadomucoso" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="oral" class="font-bold block mb-2">Estado de la Boca</label>
+                        <input pInputText id="oral" pKeyFilter="text" class="w-full" formControlName="oral" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="rectal" class="font-bold block mb-2">esatdo del recto</label>
+                        <input pInputText id="rectal" pKeyFilter="text" class="w-full" formControlName="rectal" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="vulvarpropulcal" class="font-bold block mb-2">Estado de la vulva</label>
+                        <input pInputText id="vulvarpropulcal" pKeyFilter="text" class="w-full" formControlName="vulvarpropulcal" />
+                    </div>
+                    <div class="flex-auto">
+                        <label for="observaciones" class="font-bold block mb-2">Observaciones</label>
+                        <input pInputText id="observaciones" pKeyFilter="text" class="w-full" formControlName="observaciones" />
+                    </div>
+                  </div>
+                </div>
+
+            </form>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="guardarCambios()" (click)="visible = false" label="editar" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+    </div>

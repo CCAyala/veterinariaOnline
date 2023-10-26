@@ -1,0 +1,43 @@
+<div class="card">
+    <h1>Analisis</h1>
+    <p-tabMenu [model]="itemss"></p-tabMenu>
+      
+     
+    
+    <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+
+   
+    <p-messages [value]="messages"></p-messages>
+
+
+    <br>
+
+    
+ 
+    <p-fieldset>
+        <ng-template pTemplate="header">
+            <div class="flex align-items-center text-primary">
+                <span class="pi pi-user mr-2"></span>
+                <span class="font-bold text-lg">registro Analisis </span>
+            </div>
+        </ng-template>
+        <input type="text" pInputText id="actitud"[(ngModel)]="analicis.actitud" pTooltip="Escriba la Actitud que tiene" [ngStyle]="inputStyles" tooltipPosition="right" placeholder="Escriba la Actitud que tiene" >
+        <input type="text" pInputText  id="condicorporal" [(ngModel)]="analicis.condicorporal" pTooltip="Escriba el Estado corporal"[ngStyle]="inputStyles" tooltipPosition="left" placeholder="Estado Corporal">
+        <input type="text" pInputText  id="estadoconjutival" [(ngModel)]="analicis.estadoconjutival" pTooltip="Escriba el Estado Conjutival"[ngStyle]="inputStyles" tooltipPosition="top" placeholder="Estado Conjutival">
+        <input type="text" pInputText  id="estadohidratacion" [(ngModel)]="analicis.estadohidratacion" pTooltip="Escriba el Estado de Hidratacion"[ngStyle]="inputStyles" tooltipPosition="bottom" placeholder=" Estado de Hidratacion">
+        <input type="text" pInputText  id="estadomucoso" [(ngModel)]="analicis.estadomucoso" pTooltip="Escriba el Estado Mucoso"[ngStyle]="inputStyles" tooltipPosition="right" placeholder=" Estado de Mucoso">
+        <input type="text" pInputText  id="oral" [(ngModel)]="analicis.oral" pTooltip="Escriba el Estado de la boca"[ngStyle]="inputStyles" tooltipPosition="left" placeholder="Estado de la boca">
+        <input type="text" pInputText  id="rectal" [(ngModel)]="analicis.rectal" pTooltip="Escriba el Estado rectal"[ngStyle]="inputStyles" tooltipPosition="top" placeholder="Estado rectal">
+        <input type="text" pInputText  id="vulvarpropulcal" [(ngModel)]="analicis.vulvarpropulcal" pTooltip="Escriba el la Vulvas"[ngStyle]="inputStyles" tooltipPosition="bottom" placeholder="Estado de las vulvas">
+        
+        
+
+    <textarea pKeyFilter="int" rows="15" cols="70"[(ngModel)]="analicis.observaciones" pInputTextarea  placeholder="observaciones" [ngStyle]="textareaStyles" ></textarea>
+    <div class="flex-auto">
+        <p-button icon="pi pi-check" (click)="crearAnalisis()"  label="Registrar" styleClass="p-button-text"></p-button>
+       </div>
+   
+  </p-fieldset>
+
+  
+  

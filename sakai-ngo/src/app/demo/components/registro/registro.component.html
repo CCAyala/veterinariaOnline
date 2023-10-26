@@ -1,0 +1,73 @@
+<div class="card">
+    <h1>Regristro</h1>
+    <p-tabMenu [model]="itemss"></p-tabMenu>
+      
+     
+    
+    <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+
+   
+    <p-messages [value]="messages"></p-messages>
+
+
+    <br>
+
+    
+<div class="card flex flex-wrap justify-content-center gap-3">
+    <h3>Bienveido Introduzca El codigo de la Mascota para su Registro </h3>
+<br>
+
+    <span class="p-input-icon-right">
+        
+        <input type="search" pInputText [(ngModel)]="searchText" placeholder="buscar mascota"/>
+                    
+            <p-button icon="pi pi-search"  (click)="buscarMascotas()" severity="success" ></p-button>
+    
+    </span>
+    
+   
+</div>
+
+      <div *ngIf="!mostrarMascota">
+        <!-- Espacio en blanco u otro mensaje aquí -->
+        <p>No se encontraron resultados.</p>
+      </div>
+
+        <div *ngIf="Mascotas.length > 0">
+        <p>Codigo: {{ Mascotas[0].codmasco }}</p>
+        <p>Nombre: {{ Mascotas[0].nombre }}</p>
+        <p>Especie: {{ Mascotas[0].especie }}</p>
+     
+        <div *ngIf="mensajeExito" class="mensaje-exito">{{ mensajeExito }}</div>
+        <div *ngIf="mensajeError" class="mensaje-error">{{ mensajeError }}</div>
+        <h3>A continuacion llene esta informacion de a cuerdo al estado  que se encuentra la mascota</h3>
+
+  
+
+<div class="card">
+    <p-fieldset>
+        <ng-template pTemplate="header">
+            <div class="flex align-items-center text-primary">
+                <span class="pi pi-user mr-2"></span>
+                <span class="font-bold text-lg">Nuevo Registro</span>
+            </div>
+        </ng-template>
+        <input type="text" pInputText id="estadoCardioMuscular"[(ngModel)]="reali.estadoCardioMuscular" pTooltip="Escriba el Estado Cardio Muscular" [ngStyle]="inputStyles" tooltipPosition="right" placeholder="Estado Cardio Muscular" >
+        <input type="text" pInputText  id="estadoDigestivo" [(ngModel)]="reali.estadoDigestivo" pTooltip="Escriba el Estado Digestivo"[ngStyle]="inputStyles" tooltipPosition="left" placeholder="Estado Digestivo">
+        <input type="text" pInputText  id="estadoRespiratorio" [(ngModel)]="reali.estadoRespiratorio" pTooltip="Escriba el Estado Respiratorio"[ngStyle]="inputStyles" tooltipPosition="top" placeholder="Estado Respiratorio">
+        <input type="text" pInputText  id="estadoGenitario" [(ngModel)]="reali.estadoGenitario" pTooltip="Escriba el Estado Genitario"[ngStyle]="inputStyles" tooltipPosition="bottom" placeholder=" Estado Genitario">
+        <input type="text" pInputText  id="estadoLocomocion" [(ngModel)]="reali.estadoLocomocion" pTooltip="Escriba el Estado de Locomocion"[ngStyle]="inputStyles" tooltipPosition="right" placeholder=" Estado de Locomocion">
+        <input type="text" pInputText  id="estadoModuloslinfaticos" [(ngModel)]="reali.estadoModuloslinfaticos" pTooltip="Escriba el Estado los Modulos"[ngStyle]="inputStyles" tooltipPosition="left" placeholder="Estado los Modulos">
+        <input type="text" pInputText  id="estadomMusculoEsqueletico" [(ngModel)]="reali.estadomMusculoEsqueletico" pTooltip="Escriba el Estado musculo Esqueletico"[ngStyle]="inputStyles" tooltipPosition="top" placeholder="Estado musculo Esqueletico">
+        <input type="text" pInputText  id="estadoOjos" [(ngModel)]="reali.estadoOjos" pTooltip="Escriba el Estado de los Ojos"[ngStyle]="inputStyles" tooltipPosition="bottom" placeholder="Estado de los Ojos">
+        <input type="text" pInputText  id="estadoPielyanex" [(ngModel)]="reali.estadoPielyanex" pTooltip="Escriba el Estado de la Piel"[ngStyle]="inputStyles" tooltipPosition="right" placeholder="Estado de la Piel">
+        <input type="text" pInputText  id="estadoSistemaNervioso" [(ngModel)]="reali.estadoSistemaNervioso" pTooltip="Escriba el Estado Del Sistema Nervioso"[ngStyle]="inputStyles" tooltipPosition="left" placeholder=" Estado Del Sistema Nervioso">
+        
+        <p-calendar id="fechaIng" [(ngModel)]="reali.fechaIng" [showButtonBar]="true" class="font-bold block mb-4"placeholder="Fecha de Ingreso"[ngStyle]="inputStyles" ></p-calendar>
+      
+         
+        <p-button icon="pi pi-check"  (click)="crearRegistro()" severity="success" label="Siguiente" styleClass="p-button-text"></p-button>
+        
+
+    </p-fieldset>
+</div>
