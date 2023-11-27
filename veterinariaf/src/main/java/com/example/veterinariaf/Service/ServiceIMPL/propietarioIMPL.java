@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class propietarioIMPL implements propietarioService {
 
@@ -55,6 +57,16 @@ public class propietarioIMPL implements propietarioService {
 
     @Override
     public void eliminarPropietario(int id) {
+
+        Optional<propietario> buscarPropie = this.repo.findById(id);
+
+        if (buscarPropie.isPresent()) {
+
+            propietario eliminarPropieta = buscarPropie.get();
+            this.repo.deleteById(eliminarPropieta.getId());
+        } else{
+            System.out.println("error al eliminar, registro no encontrado");
+        }
 
     }
 }

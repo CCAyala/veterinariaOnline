@@ -2,12 +2,15 @@ package com.example.veterinariaf.Service.ServiceIMPL;
 
 import com.example.veterinariaf.Service.mascotaService;
 import com.example.veterinariaf.entity.mascota;
+import com.example.veterinariaf.entity.mascotaDTO;
 import com.example.veterinariaf.entity.propietario;
 import com.example.veterinariaf.repositorio.mascotaRepo;
 import com.example.veterinariaf.repositorio.propietarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +27,25 @@ public class mascotaIMPL implements mascotaService {
     @Override
     public List<mascota> listarMascotas() {
         return (List<mascota>) this.repo.findAll();
+    }
+
+    @Override
+    public List<mascotaDTO> listarMascotaConnombre() {
+        List<Object[]> resultado=this.repo.listarMascotaConnombre();
+        List<mascotaDTO> mascotaDTOList= new ArrayList<>();
+
+        for (Object[] resul : resultado){
+            mascotaDTOList.add(new mascotaDTO(
+                    (int) resul[0],
+                    (String) resul[1],
+                    (String) resul[2],
+                    (String) resul[3],
+                    (String) resul[4],
+                    (Date) resul[5],
+                    (String) resul[6]
+            ));
+        }
+        return mascotaDTOList;
     }
 
     @Override

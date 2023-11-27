@@ -140,6 +140,13 @@ public class controler_registro {
     }
 
 
+    @DeleteMapping("eliminarRegistro/{codRegistro}")
+    public ResponseEntity<?> eliminarRegistro(@PathVariable int codRegistro){
+        this.impl.eliminarRegistro(codRegistro);
+
+        return ResponseEntity.ok("eliminacion correcta");
+    }
+
 }
 
 

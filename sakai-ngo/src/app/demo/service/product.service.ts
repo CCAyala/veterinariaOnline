@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../api/product';
+import { Carrusel } from '../api/carrusel';
 
 @Injectable()
 export class ProductService {
@@ -15,11 +16,13 @@ export class ProductService {
     }
 
     getProducts() {
-        return this.http.get<any>('assets/demo/data/products.json')
+        return this.http.get<any>('assets/demo/data/carusel.json')
             .toPromise()
-            .then(res => res.data as Product[])
+            .then(res => res.data as Carrusel[])
             .then(data => data);
     }
+
+   
 
     getProductsMixed() {
         return this.http.get<any>('assets/demo/data/products-mixed.json')

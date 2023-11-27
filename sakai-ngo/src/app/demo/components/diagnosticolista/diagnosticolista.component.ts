@@ -46,8 +46,15 @@ constructor( private dialogService: DialogService,
       { label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink:['/'] },
       { label: 'Nuevo Registro', icon: 'pi pi-fw pi-calendar',routerLink: ['/registros'] },
      
+      
+      
   ];
 
+
+ 
+
+  
+  
   this.loadReady();
 
   this.cols=[
@@ -56,6 +63,10 @@ constructor( private dialogService: DialogService,
     {field:"estado", header:"Estado de la Mascota"},
     {field:"descripccion", header:"Descripcion"}
   ]
+  }
+ 
+  abrirModal1(){
+    this.visible=true;
   }
 
   loadReady(){

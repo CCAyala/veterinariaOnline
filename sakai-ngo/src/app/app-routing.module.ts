@@ -9,6 +9,9 @@ import { RegistroListaComponent } from './demo/components/registro-lista/registr
 import { AnalisislistaComponent } from './demo/components/analisislista/analisislista.component';
 import { DiagnosticoComponent } from './demo/components/diagnostico/diagnostico.component';
 import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/diagnosticolista.component';
+import { PerfilComponent } from './demo/components/perfil/perfil.component';
+import { CitaMedicaComponent } from './demo/components/cita-medica/cita-medica.component';
+import { PlanMejoramientoComponent } from './demo/components/plan-mejoramiento/plan-mejoramiento.component';
 
 @NgModule({
     imports: [
@@ -24,7 +27,10 @@ import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/di
                     {path :'registroLista', loadChildren: ()=> import('./demo/components/registro-lista/registroLista-routing.module').then(m => m.registroListaModule)},
                     {path: 'analisisLista',loadChildren: ()=> import('./demo/components/analisislista/analisisLista-routing.module').then(m => m.AnalisislistaModule)},
                     {path: 'diagnostico/:codAnalisis',loadChildren:()=> import('./demo/components/diagnostico/diagnostico-routing.module').then(m =>m.diagnosticoModule)},
-                    {path: 'diagnosticolist', loadChildren:()=> import('./demo/components/diagnosticolista/diagnoticolista-routing.module').then(m =>m.diagnosticolistaModule)}
+                    {path: 'diagnosticolist', loadChildren:()=> import('./demo/components/diagnosticolista/diagnoticolista-routing.module').then(m =>m.diagnosticolistaModule)},
+                    {path: 'perfil', loadChildren:()=> import('./demo/components/perfil/perfil.-routin-module').then(m =>m.perfilModule)},
+                    {path:'citaMedica',loadChildren:()=>import('./demo/components/cita-medica/citaMedicaRouting-module').then(m =>m.citaMedicaModule)},
+                    {path: 'planMejoramiento', loadChildren:()=> import('./demo/components/plan-mejoramiento/planMejoramiento-routing.module').then(m =>m.perfilModule)}
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
@@ -37,7 +43,10 @@ import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/di
             {path: 'registroLista',component: RegistroListaComponent},
             {path: 'analisisLista',component: AnalisislistaComponent},
             {path: 'diagnostico/:codAnalsis',component: DiagnosticoComponent},
-            {path:'diagnosticolist', component: DiagnosticolistaComponent}
+            {path:'diagnosticolist', component: DiagnosticolistaComponent},
+            {path: 'perfil',component: PerfilComponent},
+            {path: 'citaMedica',component: CitaMedicaComponent},
+            {path : 'planMejoramiento', component: PlanMejoramientoComponent}
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule]

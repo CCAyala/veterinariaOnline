@@ -45,7 +45,7 @@ public class controler_vacunas {
     }
 
   @PutMapping("modificarVacuna/{idVacuna}")
-  public ResponseEntity<String>modificarVacuna(@PathVariable int idVacuna, @RequestBody vacunas vacuna){
+  public ResponseEntity<vacunas>modificarVacuna(@PathVariable int idVacuna, @RequestBody vacunas vacuna){
 
     vacunas buscarVacuna=this.impl.buscaVacuna(idVacuna);
 
@@ -54,14 +54,14 @@ public class controler_vacunas {
       vacunas modificarVacuna=this.impl.modificarVacuna(idVacuna,vacuna);
 
       if (modificarVacuna!=null){
-        return ResponseEntity.status(HttpStatus.CREATED).body("modificacion exitosa");
+        return ResponseEntity.status(HttpStatus.CREATED).body(modificarVacuna);
       }else {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("no se modifico nada");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
       }
 
 
     }else {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no se encontro Vacuna");
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
 

@@ -1,6 +1,6 @@
 
 <div class="card">
-    <h1>Diagnostico</h1>
+    
     <p-tabMenu [model]="itemss"></p-tabMenu>
 
 
@@ -62,7 +62,7 @@
                 <div class="d-flex justify-content-center" >
    
                     <p-button  (click)="abrirModal(Diagnostico)" [disabled]="true" icon="pi pi-bookmark" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
-                    <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>               
+                    <p-button  icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>               
                  </div>
               </td>
         </tr>
@@ -76,8 +76,7 @@
 
 </p-panel>
 
-</div>
-
+    
 
 <p-dialog header="Editar Diagnostico" [(visible)]="visibleEdicion" [style]="{ width: '50vw' }">
     <ng-template pTemplate="header">
@@ -108,4 +107,3 @@
         <p-button icon="pi pi-check" (click)="guardarCambios()" (click)="visible = false" label="editar" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-dialog>
-</div>

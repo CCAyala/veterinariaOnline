@@ -25,5 +25,5 @@ public interface registroService {
     public registro modificarRegistro(int codRegistro, registro registros);
 
 
-
+    public registro eliminarRegistro(int codRegistro);
 }

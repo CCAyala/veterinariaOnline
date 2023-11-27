@@ -1,12 +1,15 @@
 package com.example.veterinariaf.Service;
 
 import com.example.veterinariaf.entity.mascota;
+import com.example.veterinariaf.entity.mascotaDTO;
 
 import java.util.List;
 
 public interface mascotaService {
 
     public List<mascota> listarMascotas();
+
+    public List<mascotaDTO>listarMascotaConnombre();
 
     public mascota crearMascota( mascota mascotas);
 

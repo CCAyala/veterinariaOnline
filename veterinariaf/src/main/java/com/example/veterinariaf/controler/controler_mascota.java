@@ -3,6 +3,7 @@ package com.example.veterinariaf.controler;
 import com.example.veterinariaf.Service.ServiceIMPL.mascotaIMPL;
 import com.example.veterinariaf.Service.ServiceIMPL.propietarioIMPL;
 import com.example.veterinariaf.entity.mascota;
+import com.example.veterinariaf.entity.mascotaDTO;
 import com.example.veterinariaf.entity.propietario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,8 @@ public class controler_mascota {
 
 
     @GetMapping("listarMascotas")
-    public ResponseEntity<List<mascota>> listarMascotas(){
-        List<mascota> listarMascota= this.impl.listarMascotas();
+    public ResponseEntity<List<mascotaDTO>> listarMascotas(){
+        List<mascotaDTO> listarMascota= this.impl.listarMascotaConnombre();
         return  ResponseEntity.ok(listarMascota);
     }
 

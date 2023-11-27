@@ -1,0 +1,18 @@
+.card{
+    max-width: 1080px;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff; /* Color de fondo del submenú */
+    border: 1px solid #ccc; /* Borde del submenú */
+    padding: 10px;
+    z-index: 1000; /* Asegúrate de que el submenú esté en la parte superior */
+}
+
+.submenu button {
+    margin-bottom: 5px;
+    /* Otros estilos que desees aplicar a los botones del submenú */
+}

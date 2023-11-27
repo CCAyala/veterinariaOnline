@@ -40,9 +40,23 @@ import { DiagnosticoComponent } from './demo/components/diagnostico/diagnostico.
 import { SplitterModule } from 'primeng/splitter';
 import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/diagnosticolista.component';
 import { CarouselModule } from 'primeng/carousel';
+import { PerfilComponent } from './demo/components/perfil/perfil.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CitaMedicaComponent } from './demo/components/cita-medica/cita-medica.component';
+import { SelectorComponent } from './demo/components/auth/selector/selector.component';
+import { MenubarModule } from 'primeng/menubar';
+import { LayoutService } from './layout/service/app.layout.service';
+import { AppTopBarComponent } from './layout/app.topbar.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { PlanMejoramientoComponent } from './demo/components/plan-mejoramiento/plan-mejoramiento.component';
+
+
+
+
 @NgModule({
     declarations: [
-        AppComponent, NotfoundComponent, MedicamentosComponent, RegistroComponent, MascotasComponent, AnalisisComponent, RegistroListaComponent, AnalisislistaComponent, DiagnosticoComponent, DiagnosticolistaComponent
+        AppComponent, NotfoundComponent, MedicamentosComponent, RegistroComponent, MascotasComponent, AnalisisComponent, RegistroListaComponent, AnalisislistaComponent, DiagnosticoComponent, DiagnosticolistaComponent, PerfilComponent, CitaMedicaComponent, SelectorComponent, PlanMejoramientoComponent,
+        
     ],
     imports: [
         AppRoutingModule,
@@ -58,12 +72,13 @@ import { CarouselModule } from 'primeng/carousel';
         CalendarModule,
         PanelModule,
         BrowserAnimationsModule, MessageModule,FieldsetModule,TooltipModule,
-        InputTextareaModule,SplitterModule,CarouselModule
+        InputTextareaModule,SplitterModule,CarouselModule,FullCalendarModule,
+        MenubarModule,CheckboxModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, DialogService
+        PhotoService, ProductService, DialogService,LayoutService
     ],
     bootstrap: [AppComponent]
 })

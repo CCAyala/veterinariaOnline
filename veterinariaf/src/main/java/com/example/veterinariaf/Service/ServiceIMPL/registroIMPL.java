@@ -116,6 +116,20 @@ public class registroIMPL implements registroService {
           return null;
     }
 
+    @Override
+    public registro eliminarRegistro(int codRegistro) {
+        Optional<registro> buscarregistro=this.repo.findById(codRegistro);
+
+        if (buscarregistro.isPresent()){
+            registro registroExistente=buscarregistro.get();
+            this.repo.deleteById(registroExistente.getCodRegistro());
+        }
+        else {
+            System.out.println("registro no encontrado");
+        }
+        return null;
+    }
+
     public Map<String, Object> obtenerCamposEspecificos(int codigoRegistro) {
         String sql = "SELECT r.cod_registro, r.nombreMasco, r.fechaIng FROM registroDTo r WHERE r.codRegistro = ?";
         return jdbcTemplate.queryForMap(sql, codigoRegistro);

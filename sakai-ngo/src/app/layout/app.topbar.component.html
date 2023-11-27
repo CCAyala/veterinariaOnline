@@ -11,19 +11,42 @@
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
         <i class="pi pi-ellipsis-v"></i>
     </button>
-
     <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
-        <button class="p-link layout-topbar-button">
-            <i class="pi pi-calendar"></i>
-            <span>Calendario</span>
-        </button>
-        <button class="p-link layout-topbar-button">
+        <button class="p-link layout-topbar-button"  routerLink="/perfil"  [title]="'Perfil'">
             <i class="pi pi-user"></i>
             <span>perfil</span>
         </button>
-        <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">
+      
+
+
+        <button class="p-link layout-topbar-button" [routerLink]="'/'">
             <i class="pi pi-cog"></i>
             <span>configuracion</span>
         </button>
+        <button class="p-link layout-topbar-button" (click)="mostrarSubMenu = !mostrarSubMenu" [title]="'Calendario'">
+            <i class="pi pi-calendar"></i>
+            <span>Calendario</span>
+        </button>
+        <div *ngIf="mostrarSubMenu" class="submenu">
+            <!-- Opciones del submenú -->
+            <button class="p-link layout-topbar-button" (click)="seleccionarOpcion('/citaMedica')">Cita Medica</button>
+            <button class="p-link layout-topbar-button" (click)="seleccionarOpcion('')">Cita Ecografia</button>
+            <button class="p-link layout-topbar-button" (click)="seleccionarOpcion('')">Cita Vacuna</button>
+            <button class="p-link layout-topbar-button" (click)="seleccionarOpcion('')">Cita Cirugia</button>
+            <button class="p-link layout-topbar-button" (click)="seleccionarOpcion('')">Cita Laboratorio</button>
+        </div>
     </div>
-</div>
+    
+
+     
+
+        
+
+       
+    </div>
+     
+
+<!-- En tu componente donde usas p-dialog -->
+
+  
+

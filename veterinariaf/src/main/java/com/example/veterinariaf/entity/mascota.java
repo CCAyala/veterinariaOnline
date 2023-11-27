@@ -57,8 +57,12 @@ public class mascota {
   @JsonBackReference("mascota-cirugias")
   private List<cirugias> cirugiasList;
 
+    @ManyToMany(mappedBy = "mascotaList")
+    @JsonBackReference("mascota-servicios")
+    private List<servicios> serviciosList;
 
-  public mascota(int codmasco, String nombre, String color, String especie, String raza, Date fechanaci, com.example.veterinariaf.entity.propietario propietario) {
+
+    public mascota(int codmasco, String nombre, String color, String especie, String raza, Date fechanaci, com.example.veterinariaf.entity.propietario propietario) {
         this.codmasco = codmasco;
         this.nombre = nombre;
         this.color = color;

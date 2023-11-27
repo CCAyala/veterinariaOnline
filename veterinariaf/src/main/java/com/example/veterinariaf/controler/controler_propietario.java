@@ -54,4 +54,13 @@ public class controler_propietario {
         propietario buscarPropietario= this.impl.findByPropietarioXcedula(cedula);
         return ResponseEntity.ok(buscarPropietario);
     }
+
+
+    @DeleteMapping("eliminarPropietario/{id}")
+    public  ResponseEntity<?> eliminarPropietario(@PathVariable int id){
+
+        this.impl.eliminarPropietario(id);
+
+        return  ResponseEntity.ok("eliminacion correcta");
+    }
 }
