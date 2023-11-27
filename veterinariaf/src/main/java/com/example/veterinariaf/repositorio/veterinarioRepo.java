@@ -15,4 +15,6 @@ public interface veterinarioRepo extends CrudRepository<veterinario,Integer> {
 
     @Query(value = "select cod_veterinario,nombre ,cedula, especialidad,telefono from veterinario where nombre=?",nativeQuery = true)
      veterinario buscarPorNombre(@Param( "nombre") String nombre);
+
+    veterinario findByEmail(String correo);
 }

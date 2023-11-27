@@ -5,9 +5,11 @@ import { ProductService } from '../../service/product.service';
 import { Subscription } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { Button } from 'primeng/button';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
     templateUrl: './dashboard.component.html',
+    
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
@@ -22,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    constructor(private productService: ProductService, public layoutService: LayoutService) {
+    constructor(private productService: ProductService, public layoutService: LayoutService,public auth: AuthService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(() => {
             this.initChart();
         });
@@ -31,7 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.initChart();
         this.productService.getProductsSmall().then(data => this.products = data);
-
+        
         this.items = [
             { label: 'Add New', icon: 'pi pi-fw pi-plus' },
             { label: 'Remove', icon: 'pi pi-fw pi-minus' }
@@ -58,6 +60,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 numScroll: 1
             }
         ];
+
     }
 
     initChart() {
@@ -124,4 +127,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
             this.subscription.unsubscribe();
         }
     }
+
+
 }

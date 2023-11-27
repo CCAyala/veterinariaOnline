@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,9 @@ import { DiagnosticoComponent } from './demo/components/diagnostico/diagnostico.
 import { SplitterModule } from 'primeng/splitter';
 import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/diagnosticolista.component';
 import { CarouselModule } from 'primeng/carousel';
+// Import the module from the SDK
+import { AuthModule } from '@auth0/auth0-angular';
+
 @NgModule({
     declarations: [
         AppComponent, NotfoundComponent, MedicamentosComponent, RegistroComponent, MascotasComponent, AnalisisComponent, RegistroListaComponent, AnalisislistaComponent, DiagnosticoComponent, DiagnosticolistaComponent
@@ -58,13 +61,22 @@ import { CarouselModule } from 'primeng/carousel';
         CalendarModule,
         PanelModule,
         BrowserAnimationsModule, MessageModule,FieldsetModule,TooltipModule,
-        InputTextareaModule,SplitterModule,CarouselModule
+        InputTextareaModule,SplitterModule,CarouselModule,
+        // Import the module into the application, with configuration
+    AuthModule.forRoot({
+        domain: 'dev-sk2nv5ar5z2e1wr2.us.auth0.com',
+        clientId: '0khPzLcieqvyRnjEfl0VH5kHoelATBqs',
+        authorizationParams: {
+          redirect_uri: window.location.origin
+        }
+      }),
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
         PhotoService, ProductService, DialogService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

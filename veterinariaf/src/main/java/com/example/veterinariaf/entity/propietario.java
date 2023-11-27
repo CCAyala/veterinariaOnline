@@ -21,20 +21,20 @@ public class propietario {
     private String ocupacion;
     @Column(nullable = false,length = 10)
     private String celular;
+    @Column(nullable = true, length = 200)
+    private String email;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "propietario",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<mascota> mascotas;
 
-    public propietario(int id, String nombre_completo, int cedula, String ocupacion, String celular) {
+    public propietario(int id, String nombre_completo, int cedula, String ocupacion, String celular, String email) {
         this.id = id;
         this.nombre_completo = nombre_completo;
         this.cedula = cedula;
         this.ocupacion = ocupacion;
         this.celular = celular;
-    }
-
-    public propietario() {
+        this.email = email;
     }
 
     public int getId() {
@@ -75,5 +75,13 @@ public class propietario {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

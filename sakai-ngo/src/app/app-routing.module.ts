@@ -1,4 +1,4 @@
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
 import { AppLayoutComponent } from "./layout/app.layout.component";
@@ -9,7 +9,24 @@ import { RegistroListaComponent } from './demo/components/registro-lista/registr
 import { AnalisislistaComponent } from './demo/components/analisislista/analisislista.component';
 import { DiagnosticoComponent } from './demo/components/diagnostico/diagnostico.component';
 import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/diagnosticolista.component';
+import { LoginComponent } from './demo/components/auth/login/login.component';
 
+const routes: Routes=[
+
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard',
+    },
+    {path : 'login',
+     component: LoginComponent},
+    {
+        path: '',
+        loadChildren: ()=>
+        import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule),
+    }
+
+]
 @NgModule({
     imports: [
         RouterModule.forRoot([

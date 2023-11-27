@@ -20,10 +20,21 @@
         <button class="p-link layout-topbar-button">
             <i class="pi pi-user"></i>
             <span>perfil</span>
+            
         </button>
         <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">
             <i class="pi pi-cog"></i>
             <span>configuracion</span>
         </button>
+        <button class="p-link layout-topbar-button" (click)="logOut()">
+            <i class="pi pi-sign-in"></i>
+            <span class="material-icons">logout</span>
+        </button>
+        <div class="p-link layout-topbar-button" >
+            
+           
+
+        </div>
+        
     </div>
 </div>
