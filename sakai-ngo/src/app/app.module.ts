@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { DiagnosticoComponent } from './demo/components/diagnostico/diagnostico.
 import { SplitterModule } from 'primeng/splitter';
 import { DiagnosticolistaComponent } from './demo/components/diagnosticolista/diagnosticolista.component';
 import { CarouselModule } from 'primeng/carousel';
+<<<<<<< HEAD
 import { PerfilComponent } from './demo/components/perfil/perfil.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CitaMedicaComponent } from './demo/components/cita-medica/cita-medica.component';
@@ -52,6 +53,10 @@ import { PlanMejoramientoComponent } from './demo/components/plan-mejoramiento/p
 
 
 
+=======
+// Import the module from the SDK
+import { AuthModule } from '@auth0/auth0-angular';
+>>>>>>> 092996c1c9e6c2b625989842b5dea6a44d96505c
 
 @NgModule({
     declarations: [
@@ -72,14 +77,27 @@ import { PlanMejoramientoComponent } from './demo/components/plan-mejoramiento/p
         CalendarModule,
         PanelModule,
         BrowserAnimationsModule, MessageModule,FieldsetModule,TooltipModule,
+<<<<<<< HEAD
         InputTextareaModule,SplitterModule,CarouselModule,FullCalendarModule,
         MenubarModule,CheckboxModule
+=======
+        InputTextareaModule,SplitterModule,CarouselModule,
+        // Import the module into the application, with configuration
+    AuthModule.forRoot({
+        domain: 'dev-sk2nv5ar5z2e1wr2.us.auth0.com',
+        clientId: '0khPzLcieqvyRnjEfl0VH5kHoelATBqs',
+        authorizationParams: {
+          redirect_uri: window.location.origin
+        }
+      }),
+>>>>>>> 092996c1c9e6c2b625989842b5dea6a44d96505c
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
         PhotoService, ProductService, DialogService,LayoutService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

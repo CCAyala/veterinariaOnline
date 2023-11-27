@@ -18,4 +18,6 @@ public interface veterinarioService {
     public veterinario modificarVeterinario(veterinario veterinari, int cedula);
 
     public void eliminarVeterinario(int cedula );
+
+
 }

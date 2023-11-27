@@ -5,11 +5,19 @@ import { ProductService } from '../../service/product.service';
 import { Subscription } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { Button } from 'primeng/button';
+<<<<<<< HEAD
 import { Carrusel } from '../../api/carrusel';
 
 @Component({
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard-component.scss']
+=======
+import { AuthService } from '@auth0/auth0-angular';
+
+@Component({
+    templateUrl: './dashboard.component.html',
+    
+>>>>>>> 092996c1c9e6c2b625989842b5dea6a44d96505c
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
@@ -27,7 +35,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    constructor(private productService: ProductService, public layoutService: LayoutService) {
+    constructor(private productService: ProductService, public layoutService: LayoutService,public auth: AuthService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(() => {
             this.initChart();
         });
@@ -35,6 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.initChart();
+<<<<<<< HEAD
     // Puedes cargar dinámicamente las imágenes aquí si es necesario
     this.images = [
        
@@ -44,15 +53,44 @@ export class DashboardComponent implements OnInit, OnDestroy {
         { source: 'assets/demo/images/galleria/images.jpeg', thumbnailImageSrc: 'assets/demo/images/galleria/Imagen de WhatsApp 2023-10-09 a las 14.36.29_74a353d6.jpg', alt: 'Descripción de la imagen 2' },
 
         { source: 'assets/demo/images/galleria/descarga.jpeg', thumbnailImageSrc: 'assets/demo/images/galleria/perro.jpg', alt: 'Descripción de la imagen 2' },
+=======
+        this.productService.getProductsSmall().then(data => this.products = data);
+        
+        this.items = [
+            { label: 'Add New', icon: 'pi pi-fw pi-plus' },
+            { label: 'Remove', icon: 'pi pi-fw pi-minus' }
+        ];
+>>>>>>> 092996c1c9e6c2b625989842b5dea6a44d96505c
 
         { source: 'assets/demo/images/galleria/Imagen de WhatsApp 2023-10-25 a las 16.00.23_629a7511.jpg', thumbnailImageSrc: 'assets/demo/images/galleria/Imagen de WhatsApp 2023-10-25 a las 16.00.23_629a7511 (1).jpg', alt: 'Descripción de la imagen 1' },
        
         // Agrega más imágenes según sea necesario
       ];
 
+<<<<<<< HEAD
 
 
      
+=======
+        this.responsiveOptions = [
+            {
+                breakpoint: '1024px',
+                numVisible: 3,
+                numScroll: 3
+            },
+            {
+                breakpoint: '768px',
+                numVisible: 2,
+                numScroll: 2
+            },
+            {
+                breakpoint: '560px',
+                numVisible: 1,
+                numScroll: 1
+            }
+        ];
+
+>>>>>>> 092996c1c9e6c2b625989842b5dea6a44d96505c
     }
 
     initChart() {
@@ -119,4 +157,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
             this.subscription.unsubscribe();
         }
     }
+
+
 }

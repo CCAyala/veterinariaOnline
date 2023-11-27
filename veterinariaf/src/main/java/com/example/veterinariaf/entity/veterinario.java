@@ -19,59 +19,63 @@ public class veterinario {
         private String especialidad;
 
         private String telefono;
+        private String email;
 
 
+    public veterinario(int cod_veterinario, String nombre, int cedula, String especialidad, String telefono, String email) {
+        this.cod_veterinario = cod_veterinario;
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.especialidad = especialidad;
+        this.telefono = telefono;
+        this.email = email;
+    }
 
+    public int getCod_veterinario() {
+        return cod_veterinario;
+    }
 
+    public void setCod_veterinario(int cod_veterinario) {
+        this.cod_veterinario = cod_veterinario;
+    }
 
-        public veterinario(int cod_veterinario, String nombre, int cedula, String especialidad, String telefono) {
-            this.cod_veterinario = cod_veterinario;
-            this.nombre = nombre;
-            this.cedula = cedula;
-            this.especialidad = especialidad;
-            this.telefono = telefono;
-        }
+    public String getNombre() {
+        return nombre;
+    }
 
-        public veterinario() {
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-        public int getCod_veterinario() {
-            return cod_veterinario;
-        }
+    public int getCedula() {
+        return cedula;
+    }
 
-        public void setCod_veterinario(int cod_veterinario) {
-            this.cod_veterinario = cod_veterinario;
-        }
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
 
-        public String getNombre() {
-            return nombre;
-        }
+    public String getEspecialidad() {
+        return especialidad;
+    }
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
 
-        public int getCedula() {
-            return cedula;
-        }
+    public String getTelefono() {
+        return telefono;
+    }
 
-        public void setCedula(int cedula) {
-            this.cedula = cedula;
-        }
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-        public String getEspecialidad() {
-            return especialidad;
-        }
+    public String getEmail() {
+        return email;
+    }
 
-        public void setEspecialidad(String especialidad) {
-            this.especialidad = especialidad;
-        }
-
-        public String getTelefono() {
-            return telefono;
-        }
-
-        public void setTelefono(String telefono) {
-            this.telefono = telefono;
-        }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
